@@ -6,54 +6,71 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #0b0c10;
+  background: #0b0c10;
   color: #ffffff;
-  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-#bg-video {
-  position: absolute;
+/* Animated Background */
+.stars, .twinkling, .clouds {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
   z-index: -1;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+.stars {
+  background: url('https://raw.githubusercontent.com/nathanosman/jquery-simple-shapes/master/examples/starfield/stars.png ');
   z-index: 0;
 }
 
-.hero-content {
-  position: relative;
-  text-align: center;
-  padding-top: 20%;
+.twinkling {
+  background: url('https://www.createjs.com/demos/easeljs/assets/twinkle.png ');
+  animation: move-twinkies 200s linear infinite;
   z-index: 1;
 }
 
-.hero h1 {
+.clouds {
+  background: url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/clouds.png ');
+  animation: move-clouds 300s linear infinite;
+  z-index: 2;
+}
+
+@keyframes move-twinkies {
+  from { background-position: 0 0; }
+  to { background-position: 10000px 5000px; }
+}
+
+@keyframes move-clouds {
+  from { background-position: 0 bottom; }
+  to { background-position: 10000px bottom; }
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero-content h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 3rem;
   color: #66fcf1;
+  text-shadow: 0 0 10px #4fd1c5;
 }
 
-.hero p {
+.hero-content p {
   font-size: 1.2rem;
   margin: 1rem auto;
   max-width: 600px;
+  color: #c5c6c7;
 }
 
 .btn {
@@ -65,7 +82,13 @@ body {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #4fd1c5;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #66fcf1;
 }
 
 .btn.secondary {
@@ -76,27 +99,34 @@ body {
 
 .section {
   padding: 4rem 2rem;
-  background: #1f2833;
+  background: rgba(29, 32, 36, 0.8);
+  backdrop-filter: blur(10px);
   max-width: 1000px;
   margin: auto;
+  border-top: 1px solid #444;
 }
 
-.cards {
+.cards, .use-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
-.card {
-  background: #0b0c10;
+.card, .use-card {
+  background: rgba(11, 12, 16, 0.7);
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 0 10px #4fd1c550;
+  transition: transform 0.3s ease;
+}
+
+.card:hover, .use-card:hover {
+  transform: translateY(-5px);
 }
 
 .contact {
-  background: #0b0c10;
+  background: rgba(11, 12, 16, 0.9);
 }
 
 form {
@@ -112,6 +142,7 @@ input, textarea {
   border-radius: 5px;
   background: #1f2833;
   color: white;
+  border: 1px solid #4fd1c5;
 }
 
 footer {
@@ -126,4 +157,14 @@ footer {
   color: #4fd1c5;
   text-decoration: none;
   margin: 0 0.5rem;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
