@@ -9,12 +9,13 @@
 </head>
 <body>
 
+  <!-- Animated Background -->
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+
   <!-- Hero Section -->
   <header class="hero">
-    <div class="overlay"></div>
-    <video autoplay muted loop id="bg-video">
-      <source src="https://cdn.pixabay.com/video/2020/06/29/54645-435424959_large.mp4 " type="video/mp4">
-    </video>
     <div class="hero-content">
       <h1>NOVIGO SOLUTIONS</h1>
       <p>We Build Agentic AI That Thinks, Acts, and Learns Like Humans</p>
@@ -24,24 +25,35 @@
   </header>
 
   <!-- What Is Agentic AI -->
-  <section class="section">
+  <section class="section fade-in">
     <h2>🧠 Understanding Agentic AI</h2>
     <p>Agentic AI systems are autonomous, proactive, and capable of planning, executing, and learning from actions with minimal human intervention. They simulate human-like decision-making and perform complex workflows independently.</p>
   </section>
 
   <!-- Products -->
-  <section class="section" id="products">
+  <section class="section fade-in" id="products">
     <h2>🛠️ AI-Powered Solutions</h2>
     <div class="cards">
-      <div class="card"><h3>🧠 AgentFlow Studio</h3><p>Visual builder for creating custom AI agents.</p></div>
+      <div class="card"><h3>🧠 AgentFlow Studio</h3><p>Visual builder for creating custom AI agents with drag-and-drop simplicity.</p></div>
       <div class="card"><h3>🤖 EnterpriseAI Agent Suite</h3><p>Custom agentic solutions for finance, logistics, healthcare, and more.</p></div>
-      <div class="card"><h3>📊 InsightAgent</h3><p>Autonomous data analysis agent that generates reports and insights.</p></div>
+      <div class="card"><h3>📊 InsightAgent</h3><p>Autonomous data analysis agent that generates reports and insights in real-time.</p></div>
       <div class="card"><h3>🧩 ToolForge API</h3><p>Open API for developers to plug into our agentic architecture.</p></div>
     </div>
   </section>
 
+  <!-- Use Cases -->
+  <section class="section fade-in" id="use-cases">
+    <h2>🎯 Real-World Impact</h2>
+    <div class="use-cards">
+      <div class="use-card"><h4>Customer Service</h4><p>Conversational agents that resolve tickets end-to-end without human input.</p></div>
+      <div class="use-card"><h4>Supply Chain</h4><p>Predictive agents that adjust logistics dynamically based on global conditions.</p></div>
+      <div class="use-card"><h4>Finance</h4><p>Personalized investment agents that adapt to market changes autonomously.</p></div>
+      <div class="use-card"><h4>Healthcare</h4><p>Diagnostic agents that collaborate with doctors and patients intelligently.</p></div>
+    </div>
+  </section>
+
   <!-- Contact -->
-  <section class="section contact" id="contact">
+  <section class="section contact fade-in" id="contact">
     <h2>💬 Ready to Bring Agentic AI to Your Business?</h2>
     <form>
       <input type="text" placeholder="Name" required />
